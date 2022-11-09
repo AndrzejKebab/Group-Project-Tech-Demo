@@ -1,2 +1,3 @@
-# Vampire pożal sie boże //test
- 
+# Tech Demo
+
+## Original Music not included, Isaac OST for preview purposes only.
