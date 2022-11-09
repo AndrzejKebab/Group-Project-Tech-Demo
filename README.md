@@ -2,4 +2,4 @@
 
 ## Original Music not included, Isaac OST for preview purposes only.
 
-## Game will be available since end of the month.
+##The game will be available on itch.io by the end of the month.
