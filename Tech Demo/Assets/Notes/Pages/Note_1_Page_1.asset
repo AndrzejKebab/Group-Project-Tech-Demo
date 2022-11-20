@@ -13,10 +13,21 @@ MonoBehaviour:
   m_Name: Note_1_Page_1
   m_EditorClassIdentifier: 
   type: 0
-  text: dafafsssssssssssssss
+  text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nulla
+    euismod, ultricies nisi id, suscipit odio. Suspendisse potenti. Ut diam arcu,
+    blandit et massa eget, facilisis tincidunt est. Integer volutpat ac quam egestas
+    rutrum. Proin vel dictum diam. Aliquam tristique semper ligula sed fermentum.
+    Sed vulputate, mauris et porttitor accumsan, lectus dui commodo arcu, at sollicitudin
+    ex eros a erat. Nam a posuere justo. Sed sodales eu lacus eget imperdiet. Aliquam
+    eget facilisis libero. Nulla ex odio, maximus ut nisl non, dictum lobortis metus.
+    Quisque euismod aliquam massa, et egestas felis fringilla eget. Praesent semper
+    pretium diam et aliquet. Quisque volutpat tristique libero, vitae condimentum
+    arcu dapibus et. Pellentesque mauris nunc, tincidunt ut erat ac, vestibulum egestas
+    augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
   texture: {fileID: 0}
   useSubscript: 0
-  displayLines: 0
+  displayLines: 1
   narration: {fileID: 0}
   narration_PlayOnce: 0
   narrationPlayed: 0

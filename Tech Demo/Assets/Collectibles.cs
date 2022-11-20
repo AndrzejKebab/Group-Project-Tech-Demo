@@ -1,3 +1,5 @@
+using PatataStudio.DataPersitence;
+using PatataStudio.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;

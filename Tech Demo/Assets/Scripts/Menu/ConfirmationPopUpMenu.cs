@@ -1,40 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class ConfirmationPopUpMenu : MonoBehaviour
+namespace PatataStudio.Menu
 {
-	[Header("Components")]
-	[SerializeField] private TextMeshProUGUI displayedText;
-	[SerializeField] private Button confirmButton;
-	[SerializeField] private Button abortButton;
-
-	public void ActivateMenu(string displayedText, UnityAction confirmAction, UnityAction abortAction)
+	public class ConfirmationPopUpMenu : MonoBehaviour
 	{
-		this.gameObject.SetActive(true);
+		[Header("Components")]
+		[SerializeField] private TextMeshProUGUI displayedText;
+		[SerializeField] private Button confirmButton;
+		[SerializeField] private Button abortButton;
 
-		this.displayedText.text = displayedText;
-
-		confirmButton.onClick.RemoveAllListeners();
-		abortButton.onClick.RemoveAllListeners();
-
-		confirmButton.onClick.AddListener(() =>
+		public void ActivateMenu(string displayedText, UnityAction confirmAction, UnityAction abortAction)
 		{
-			DeactivateMenu();
-			confirmAction();
-		});
-		abortButton.onClick.AddListener(() =>
-		{
-			DeactivateMenu();
-			abortAction();
-		});
-	}
+			gameObject.SetActive(true);
 
-	private void DeactivateMenu()
-	{
-		this.gameObject.SetActive(false);
+			this.displayedText.text = displayedText;
+
+			confirmButton.onClick.RemoveAllListeners();
+			abortButton.onClick.RemoveAllListeners();
+
+			confirmButton.onClick.AddListener(() =>
+			{
+				DeactivateMenu();
+				confirmAction();
+			});
+			abortButton.onClick.AddListener(() =>
+			{
+				DeactivateMenu();
+				abortAction();
+			});
+		}
+
+		private void DeactivateMenu()
+		{
+			gameObject.SetActive(false);
+		}
 	}
 }

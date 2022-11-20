@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using PatataStudio.DataPersitence.Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+namespace PatataStudio.Menu
 {
-	public void SaveGame()
+	public class PauseMenu : MonoBehaviour
 	{
-		DataPersistenceManager.instance.SaveGame();
-	}
+		public void SaveGame()
+		{
+			DataPersistenceManager.instance.SaveGame();
+		}
 
-	public void BackToMenu()
-	{
-		Time.timeScale = 1f;
-		SceneManager.LoadScene(0);
+		public void BackToMenu()
+		{
+			Time.timeScale = 1f;
+			SceneManager.LoadScene(0);
+		}
 	}
 }

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_Color: {r: 0.5188679, g: 0.3460792, b: 0.12482198, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 2111804391840050331}
   label: {fileID: 7262921932715937673}
+  unreadDot: {fileID: 4793967438148293894}
 --- !u!1 &6598327971997043484
 GameObject:
   m_ObjectHideFlags: 0

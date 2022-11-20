@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Note_1_Page_2
   m_EditorClassIdentifier: 
   type: 0
-  text: afafgasfafasfasfafsafa
+  text: Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+    ac turpis egestas. Nullam et placerat tellus, sed blandit diam. Aenean hendrerit
+    non nulla non maximus. Mauris malesuada tempor dictum. In et dui facilisis, tempor
+    metus ac, porttitor sapien. Maecenas orci ex, interdum nec commodo et, semper
+    id odio. Sed consequat ante tellus, id tristique est auctor venenatis. Cras at
+    ligula fringilla neque fringilla ultricies. Sed aliquet mi elementum leo malesuada
+    vestibulum ac in dolor. Aenean rutrum feugiat congue.
   texture: {fileID: 0}
   useSubscript: 0
-  displayLines: 0
+  displayLines: 1
   narration: {fileID: 0}
   narration_PlayOnce: 0
   narrationPlayed: 0

@@ -1,52 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
+using PatataStudio.DataPersitence;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SaveSlot : MonoBehaviour
+namespace PatataStudio.Menu
 {
-	[Header("Profile")]
-	[SerializeField] private string profileId = "";
-
-	[Header("Content")]
-	[SerializeField] private GameObject noDataContent;
-	[SerializeField] private GameObject hasDataContent;
-	[SerializeField] private TextMeshProUGUI mainPlotCompleted;
-	[SerializeField] private TextMeshProUGUI sideQuestsCompleted;
-
-	public bool hasData { get; private set; } = false;
-
-	private Button saveSlotButton;
-
-	private void Awake()
+	public class SaveSlot : MonoBehaviour
 	{
-		saveSlotButton = this.GetComponent<Button>();
-	}
+		[Header("Profile")]
+		[SerializeField] private string profileId = "";
 
-	public void SetData(GameData data)
-	{
-		if(data == null)
+		[Header("Content")]
+		[SerializeField] private GameObject noDataContent;
+		[SerializeField] private GameObject hasDataContent;
+		[SerializeField] private TextMeshProUGUI mainPlotCompleted;
+		[SerializeField] private TextMeshProUGUI sideQuestsCompleted;
+
+		public bool hasData { get; private set; } = false;
+
+		private Button saveSlotButton;
+
+		private void Awake()
 		{
-			hasData = false;
-			noDataContent.SetActive(true);
-			hasDataContent.SetActive(false);
+			saveSlotButton = GetComponent<Button>();
 		}
-		else
+
+		public void SetData(GameData data)
 		{
-			hasData = true;
-			noDataContent.SetActive(false);
-			hasDataContent.SetActive(true);
+			if (data == null)
+			{
+				hasData = false;
+				noDataContent.SetActive(true);
+				hasDataContent.SetActive(false);
+			}
+			else
+			{
+				hasData = true;
+				noDataContent.SetActive(false);
+				hasDataContent.SetActive(true);
+			}
 		}
-	}
 
-	public string GetProfileId()
-	{
-		return this.profileId;
-	}
+		public string GetProfileId()
+		{
+			return profileId;
+		}
 
-	public void SetInteractable(bool interactable)
-	{
-		saveSlotButton.interactable = interactable;
+		public void SetInteractable(bool interactable)
+		{
+			saveSlotButton.interactable = interactable;
+		}
 	}
 }

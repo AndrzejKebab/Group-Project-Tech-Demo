@@ -16,7 +16,7 @@ MonoBehaviour:
   text: LORE GIPSUM SDASFA
   texture: {fileID: 0}
   useSubscript: 0
-  displayLines: 0
+  displayLines: 1
   narration: {fileID: 0}
   narration_PlayOnce: 0
   narrationPlayed: 0
