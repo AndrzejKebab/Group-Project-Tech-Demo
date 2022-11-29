@@ -9,7 +9,9 @@ using PatataStudio.DataPersitence;
 namespace PatataStudio.DialogueSystem
 {
 	public class DialogueManager : MonoBehaviour, IDataPersistence
-	{
+	{	
+		public static DialogueManager instance { get; private set; }
+
 		[Header("Params")]
 		[SerializeField] private float typingSpeed = 0.04f;
 
@@ -33,8 +35,6 @@ namespace PatataStudio.DialogueSystem
 		private bool canContinueToNextLine = false;
 		private Coroutine displayLineCoroutine;
 
-		private static DialogueManager instance;
-
 		private const string SPEAKER_TAG = "speaker";
 		private const string PORTRAIT_TAG = "portrait";
 		private const string LAYOUT_TAG = "layout";
@@ -49,11 +49,6 @@ namespace PatataStudio.DialogueSystem
 				return;
 			}
 			instance = this;
-		}
-
-		public static DialogueManager GetInstance()
-		{
-			return instance;
 		}
 
 		private void Start()
@@ -97,7 +92,7 @@ namespace PatataStudio.DialogueSystem
 
 			displayNameText.text = "???";
 			portraitAnimator.Play("default");
-			layoutAnimator.Play("right");
+			layoutAnimator.Play("Right");
 
 			ContinueStory();
 		}

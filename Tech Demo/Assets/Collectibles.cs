@@ -2,7 +2,6 @@ using PatataStudio.DataPersitence;
 using PatataStudio.DialogueSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.EnhancedTouch;
 
 public class Collectibles : MonoBehaviour , IDataPersistence
 {
@@ -20,7 +19,7 @@ public class Collectibles : MonoBehaviour , IDataPersistence
 	// Update is called once per frame
 	void Update()
 	{
-		circlesPicked = ((Ink.Runtime.IntValue)DialogueManager.GetInstance().GetVariableState("circlesPicked")).value;
+		circlesPicked = ((Ink.Runtime.IntValue)DialogueManager.instance.GetVariableState("circlesPicked")).value;
 		Debug.Log("Circles amount: " + circlesPicked);
 	}
 
@@ -30,7 +29,7 @@ public class Collectibles : MonoBehaviour , IDataPersistence
 		{
 			circlesPicked++;
 			Ink.Runtime.Object obj = new Ink.Runtime.IntValue(circlesPicked);
-			DialogueManager.GetInstance().SetVariableState("circlesPicked", obj);
+			DialogueManager.instance.SetVariableState("circlesPicked", obj);
 			this.gameObject.SetActive(false);
 			isCollected = true;
 		}
@@ -38,19 +37,19 @@ public class Collectibles : MonoBehaviour , IDataPersistence
 
 	public void LoadData(GameData data)
 	{
-		data.testStuff.TryGetValue(id, out isCollected);
-		if (isCollected == true)
-		{
-			Destroy(this.gameObject);
-		}
+		//data.testStuff.TryGetValue(id, out isCollected);
+		//if (isCollected == true)
+		//{
+		//	Destroy(this.gameObject);
+		//}
 	}
 
 	public void SaveData(GameData data)
 	{
-		if (data.testStuff.ContainsKey(id))
-		{
-			data.testStuff.Remove(id);
-		}
-		data.testStuff.Add(id, isCollected);
+		//if (data.testStuff.ContainsKey(id))
+		//{
+		//	data.testStuff.Remove(id);
+		//}
+		//data.testStuff.Add(id, isCollected);
 	}
 }

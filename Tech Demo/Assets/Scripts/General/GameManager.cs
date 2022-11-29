@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager instance;      //Creating instance.
+	public static GameManager instance { get; private set; }
 
 	private void Awake()
 	{
@@ -19,6 +19,6 @@ public class GameManager : MonoBehaviour
 		instance = this;
 		DontDestroyOnLoad(this.gameObject);
 
-		Application.targetFrameRate = 30;
+		Application.targetFrameRate = 60;
 	}
 }

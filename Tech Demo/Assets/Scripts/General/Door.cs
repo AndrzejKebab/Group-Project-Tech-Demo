@@ -1,3 +1,4 @@
+using PatataStudio.Inputs;
 using UnityEngine;
 
 namespace PatataStudio.General
@@ -5,11 +6,19 @@ namespace PatataStudio.General
 	public class Door : MonoBehaviour
 	{
 		[SerializeField] private Transform doorDestination;
+		private Transform player;
 
-
-		public Transform GetDestination()
+		private void Awake()
 		{
-			return doorDestination;
+			player = GameObject.FindGameObjectWithTag("Player").transform;
+		}
+
+		private void OnTriggerStay2D(Collider2D collision)
+		{
+			if (InputManager.instance.GetInteractPressed())
+			{
+				player.position = doorDestination.position;
+			}
 		}
 	}
 }

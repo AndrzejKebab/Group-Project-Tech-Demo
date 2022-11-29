@@ -131,8 +131,6 @@ namespace PatataStudio.DataPersitence.Manager
 
 			gameData.lastUpdated = System.DateTime.Now.ToBinary();
 
-			Debug.Log("Saved Health: " + gameData.health + " / " + gameData.maxHealth);
-
 			Scene scene = SceneManager.GetActiveScene();
 
 			if (!scene.buildIndex.Equals(0))

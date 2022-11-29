@@ -10,20 +10,16 @@ namespace PatataStudio.DataPersitence
 
 		public string globalVariablesStateJson;
 		public int currentSceneIndex;
-		public int maxHealth;
-		public float health;
 		public Vector3 playerPosition;
-		public SerializableDictionary<string, bool> testStuff;
+		public SerializableDictionary<string, bool> CollectedNotes;
 
 		public GameData()
 		{
 			currentSceneIndex = 1;
 
 			globalVariablesStateJson = "";
-			maxHealth = 100;
-			health = maxHealth;
-			playerPosition = Vector3.zero;
-			testStuff = new SerializableDictionary<string, bool>();
+			playerPosition = new Vector3(-50, 55, 0);
+			CollectedNotes = new SerializableDictionary<string, bool>();
 		}
 	}
 }

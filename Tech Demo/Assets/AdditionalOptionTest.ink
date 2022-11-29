@@ -1,4 +1,4 @@
-INCLUDE Globals.ink
+INCLUDE Dialogues/Globals.ink
 
 -> main
 

@@ -20,7 +20,7 @@ public class TortureNPC : MonoBehaviour
 
 	private void Update()
 	{
-		string somethingName = ((Ink.Runtime.StringValue) DialogueManager.GetInstance().GetVariableState("something_name")).value;
+		string somethingName = ((Ink.Runtime.StringValue) DialogueManager.instance.GetVariableState("something_name")).value;
 
 		switch (somethingName)
 		{

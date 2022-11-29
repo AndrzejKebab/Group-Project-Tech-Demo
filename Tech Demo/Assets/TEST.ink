@@ -1,4 +1,4 @@
-INCLUDE Globals.ink
+INCLUDE Dialogues/Globals.ink
 
 { something_name == "": -> main | -> alredy_chose}
 -> main

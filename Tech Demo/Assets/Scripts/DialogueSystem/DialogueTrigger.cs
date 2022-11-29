@@ -21,12 +21,12 @@ namespace PatataStudio.DialogueSystem
 
 		private void Update()
 		{
-			if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
+			if (playerInRange && !DialogueManager.instance.dialogueIsPlaying)
 			{
 				visualCue.SetActive(true);
 				if (InputManager.instance.GetInteractPressed())
 				{
-					DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+					DialogueManager.instance.EnterDialogueMode(inkJSON);
 				}
 			}
 			else

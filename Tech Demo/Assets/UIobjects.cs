@@ -11,6 +11,6 @@ public class UIobjects : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		circlesTxt.text = "Circles Picked: " + DialogueManager.GetInstance().GetVariableState("circlesPicked") + " / 6";
+		circlesTxt.text = "Circles Picked: " + DialogueManager.instance.GetVariableState("circlesPicked") + " / 6";
 	}
 }

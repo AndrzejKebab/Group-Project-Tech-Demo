@@ -11,41 +11,18 @@ namespace PatataStudio.NoteBookSystem
 	[Serializable()]
 	public struct UIElements
 	{
-		[SerializeField] private TextMeshProUGUI textObj;
-		public TextMeshProUGUI TextObj { get { return textObj; } }
-	
-		[SerializeField] private TextMeshProUGUI subscript;
-		public TextMeshProUGUI Subscript { get { return subscript; } }
-	
-		[SerializeField] private CanvasGroup subscriptGroup;
-		public CanvasGroup SubscriptGroup { get { return subscriptGroup; } }
-	
-		[SerializeField] private Image page;
-		public Image Page { get { return page; } }
-	
-		[SerializeField] private Image lines;
-		public Image Lines { get { return lines; } }
-	
-		[SerializeField] private CanvasGroup noteCanvasGroup;
-		public CanvasGroup NoteCanvasGroup { get { return noteCanvasGroup; } }
-	
-		[SerializeField] private CanvasGroup listCanvasGroup;
-		public CanvasGroup ListCanvasGroup { get { return listCanvasGroup; } }
-	
-		[SerializeField] private CanvasGroup readButton;
-		public CanvasGroup ReadButton { get { return readButton; } }
-	
-		[SerializeField] private CanvasGroup nextButton;
-		public CanvasGroup NextButton { get { return nextButton; } }
-	
-		[SerializeField] private CanvasGroup previousButton;
-		public CanvasGroup PreviousButton { get { return previousButton; } }
-	
-		[SerializeField] public NoteData noteDataPrefab;
-		public NoteData NoteDataPrefab { get { return noteDataPrefab; } }
-	
-		[SerializeField] private RectTransform listRect;
-		public RectTransform ListRect { get { return listRect; } }
+		[field: SerializeField] public TextMeshProUGUI textObj { get; private set; }
+		[field: SerializeField] public TextMeshProUGUI subscript { get; private set; }
+		[field: SerializeField] public CanvasGroup subscriptGroup { get; private set; }
+		[field: SerializeField] public Image page { get; private set; }
+		[field: SerializeField] public Image lines { get; private set; }
+		[field: SerializeField] public CanvasGroup noteCanvasGroup { get; private set; }
+		[field: SerializeField] public CanvasGroup listCanvasGroup { get; private set; }
+		[field: SerializeField] public CanvasGroup readButton { get; private set; }
+		[field: SerializeField] public CanvasGroup nextButton { get; private set; }
+		[field: SerializeField] public CanvasGroup previousButton { get; private set; }
+		[field: SerializeField] public NoteData noteDataPrefab { get; private set; }
+		[field:SerializeField] public RectTransform listRect { get; private set; }
 	}
 	
 	public class NoteSystem : MonoBehaviour
@@ -93,14 +70,13 @@ namespace PatataStudio.NoteBookSystem
 		
 		private void OnDisable()
 		{
-			A_Display -= DisplayNote;
-		
+			A_Display -= DisplayNote;		
 		}
 	
 		private void Start()
 		{
 			Close(false);
-			defaultPageTexture = UI.Page.sprite;
+			defaultPageTexture = UI.page.sprite;
 		}
 	
 		private void Update()
@@ -124,7 +100,7 @@ namespace PatataStudio.NoteBookSystem
 		public void Open()
 		{
 			UpdateList();
-			UpdateCanvasGroup(true, UI.ListCanvasGroup);
+			UpdateCanvasGroup(true, UI.listCanvasGroup);
 			SwitchGameControls(false);
 		}
 	
@@ -140,13 +116,13 @@ namespace PatataStudio.NoteBookSystem
 					player.GetComponent<Player>().noteBookActive = true;
 					break;
 			}
-	
+		
 		}
 	
 		public void Close(bool playSFX)
 		{
 			CloseNote(playSFX);
-			UpdateCanvasGroup(false, UI.ListCanvasGroup);
+			UpdateCanvasGroup(false, UI.listCanvasGroup);
 		}
 	
 		private void DisplayNote(Note note)
@@ -157,7 +133,7 @@ namespace PatataStudio.NoteBookSystem
 	
 			PlaySound(openNoteSFX);
 	
-			UpdateCanvasGroup(true, UI.NoteCanvasGroup);
+			UpdateCanvasGroup(true, UI.noteCanvasGroup);
 			activeNote = note;
 	
 			DisplayPage(0);
@@ -165,7 +141,7 @@ namespace PatataStudio.NoteBookSystem
 	
 		private void DisplayPage(int page)
 		{
-			UI.ReadButton.interactable = activeNote.Pages[page].Type == PageType.Texture;
+			UI.readButton.interactable = activeNote.Pages[page].Type == PageType.Texture;
 	
 			if (activeNote.Pages[page].Type != PageType.Texture)
 			{
@@ -190,12 +166,12 @@ namespace PatataStudio.NoteBookSystem
 			switch (activeNote.Pages[page].Type)
 			{
 				case PageType.Text:
-					UI.Page.sprite = defaultPageTexture;
-					UI.TextObj.text = activeNote.Pages[page].Text;
+					UI.page.sprite = defaultPageTexture;
+					UI.textObj.text = activeNote.Pages[page].Text;
 					break;
 				case PageType.Texture:
-					UI.Page.sprite = activeNote.Pages[page].Texture;
-					UI.TextObj.text = String.Empty;
+					UI.page.sprite = activeNote.Pages[page].Texture;
+					UI.textObj.text = String.Empty;
 					break;
 			}
 			UpdateUI();
@@ -218,20 +194,20 @@ namespace PatataStudio.NoteBookSystem
 			{
 				PlaySound(closeNoteSFX);
 			}
-			UpdateCanvasGroup(false, UI.NoteCanvasGroup);
+			UpdateCanvasGroup(false, UI.noteCanvasGroup);
 			OnNoteClose();
 		}
 	
 		private void UpdateUI()
 		{
-			UI.PreviousButton.interactable = !(currentPage == 0);
-			UI.NextButton.interactable = !(currentPage == activeNote.Pages.Length - 1);
+			UI.previousButton.interactable = !(currentPage == 0);
+			UI.nextButton.interactable = !(currentPage == activeNote.Pages.Length - 1);
 	
 			var useSubscript = ActivePage.Type == PageType.Texture && ActivePage.UseSubscript;
-			UI.ReadButton.alpha = useSubscript ? (readSubscript ? .5f : 1f) : 0f;
-			UpdateCanvasGroup(readSubscript, UI.SubscriptGroup);
+			UI.readButton.alpha = useSubscript ? (readSubscript ? .5f : 1f) : 0f;
+			UpdateCanvasGroup(readSubscript, UI.subscriptGroup);
 	
-			UI.Lines.enabled = ActivePage.DisplayLines;
+			UI.lines.enabled = ActivePage.DisplayLines;
 		}
 	
 		private void UpdateList()
@@ -244,7 +220,7 @@ namespace PatataStudio.NoteBookSystem
 			{
 				var color = index % 2 == 0 ? color1 : color2;
 	
-				var newNotePrefab = Instantiate(UI.NoteDataPrefab, UI.ListRect);
+				var newNotePrefab = Instantiate(UI.noteDataPrefab, UI.listRect);
 				noteDatas.Add(newNotePrefab);
 	
 				newNotePrefab.UpdateInfo(note.Value, color);
@@ -252,7 +228,7 @@ namespace PatataStudio.NoteBookSystem
 				newNotePrefab.Rect.anchoredPosition = new Vector2(0, height);
 				height -= newNotePrefab.Rect.sizeDelta.y;
 	
-				UI.ListRect.sizeDelta = new Vector2(UI.ListRect.sizeDelta.x, height * -1);
+				UI.listRect.sizeDelta = new Vector2(UI.listRect.sizeDelta.x, height * -1);
 	
 				index++;
 			}
@@ -260,7 +236,7 @@ namespace PatataStudio.NoteBookSystem
 	
 		private void UpdateSubscript()
 		{
-			UI.Subscript.text = readSubscript ? ActivePage.Text : string.Empty;
+			UI.subscript.text = readSubscript ? ActivePage.Text : string.Empty;
 		}
 	
 		public void Next()

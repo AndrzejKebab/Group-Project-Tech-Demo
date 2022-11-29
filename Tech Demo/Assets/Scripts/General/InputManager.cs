@@ -14,7 +14,7 @@ namespace PatataStudio.Inputs
 		private Vector2 cursorPos;
 		private Vector2 movement;
 
-		public static InputManager instance;
+		public static InputManager instance { get; private set; }
 
 		private void Awake()
 		{
