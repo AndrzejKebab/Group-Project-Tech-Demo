@@ -6,10 +6,10 @@
 - Save & Load
 - Original Music
 - Original Characters
-- 3 Endings
 - Dialogues with decisions (Non-game Impact)
 - Maybe 5 min of Gameplay
 - Simple Lighting
+
 ## Not Implemented Features:
 - Isometric Style
 -  Semi-Open World
@@ -18,6 +18,7 @@
 - Side Quest
 - Character Development
 - Dialogues with decisions (With Game Impact)
+- 3 Endings
 - More Notes
 - More Dialogues
 - More Characters
