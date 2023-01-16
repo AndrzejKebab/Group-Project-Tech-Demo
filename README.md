@@ -1,6 +1,9 @@
 # Game is unfinished because the team broke up, 5 days before deadline..
 https://exway.itch.io/vampire-the-madness-network
 
+TAB - Notes
+E   - Interaction
+
 ## Implemented Features:
 - Top-Down Style
 - Notes
